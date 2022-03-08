@@ -15,7 +15,7 @@ export type RootStackParams = {
 
 const Stack = createStackNavigator<RootStackParams>();
 
-const StackNavigator = () => (
+export const StackNavigator = () => (
   <Stack.Navigator
     // initialRouteName='PageTwoScreen'
     screenOptions={{
@@ -45,5 +45,3 @@ const StackNavigator = () => (
     <Stack.Screen name="PersonScreen" component={PersonScreen} />
   </Stack.Navigator>
 );
-
-export default StackNavigator;
