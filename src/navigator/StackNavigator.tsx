@@ -4,6 +4,7 @@ import PageOneScreen from '../screens/PageOneScreen';
 import PageTwoScreen from '../screens/PageTwoScreen';
 import PageThreeScreen from '../screens/PageThreeScreen';
 
+// https://reactnavigation.org/docs/typescript/
 const Stack = createStackNavigator();
 
 const StackNavigator = () => (
