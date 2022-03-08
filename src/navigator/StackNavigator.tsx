@@ -6,7 +6,14 @@ import PageThreeScreen from '../screens/PageThreeScreen';
 import PersonScreen from '../screens/PersonScreen';
 
 // https://reactnavigation.org/docs/typescript/
-const Stack = createStackNavigator();
+export type RootStackParams = {
+  PageOneScreen: undefined;
+  PageTwoScreen: undefined;
+  PageThreeScreen: undefined;
+  PersonScreen: {id: number; nombre: string};
+};
+
+const Stack = createStackNavigator<RootStackParams>();
 
 const StackNavigator = () => (
   <Stack.Navigator

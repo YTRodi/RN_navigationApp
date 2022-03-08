@@ -1,10 +1,12 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {RootStackParams} from '../navigator/StackNavigator';
 import {styles} from '../theme/appTheme';
 
-interface Props extends StackScreenProps<any, any> {}
+interface Props extends StackScreenProps<RootStackParams, 'PageOneScreen'> {}
 
 const PageOneScreen = ({navigation}: Props) => {
   return (
@@ -17,15 +19,30 @@ const PageOneScreen = ({navigation}: Props) => {
       />
 
       <Text>Navegar con argumentos</Text>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('PersonScreen', {
-            id: 1,
-            nombre: 'Pedro',
-          })
-        }>
-        <Text>Pedro</Text>
-      </TouchableOpacity>
+
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity
+          style={{...styles.bigButton, backgroundColor: '#5856D6'}}
+          onPress={() =>
+            navigation.navigate('PersonScreen', {
+              id: 1,
+              nombre: 'Pedro',
+            })
+          }>
+          <Text style={styles.bigButtonText}>Pedro</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{...styles.bigButton, backgroundColor: '#FF9427'}}
+          onPress={() =>
+            navigation.navigate('PersonScreen', {
+              id: 2,
+              nombre: 'Maria',
+            })
+          }>
+          <Text style={styles.bigButtonText}>Maria</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
