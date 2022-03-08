@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import PageOneScreen from '../screens/PageOneScreen';
 import PageTwoScreen from '../screens/PageTwoScreen';
 import PageThreeScreen from '../screens/PageThreeScreen';
+import PersonScreen from '../screens/PersonScreen';
 
 // https://reactnavigation.org/docs/typescript/
 const Stack = createStackNavigator();
@@ -34,6 +35,7 @@ const StackNavigator = () => (
       options={{title: 'Página 3'}}
       component={PageThreeScreen}
     />
+    <Stack.Screen name="PersonScreen" component={PersonScreen} />
   </Stack.Navigator>
 );
 
