@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Button, Text, View, TouchableOpacity} from 'react-native';
 // import {StackScreenProps} from '@react-navigation/stack';
 import {DrawerScreenProps} from '@react-navigation/drawer';
@@ -10,14 +10,6 @@ import {styles} from '../theme/appTheme';
 interface Props extends DrawerScreenProps<RootStackParams, 'PageOneScreen'> {}
 
 const PageOneScreen = ({navigation}: Props) => {
-  useEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <Button title="hola" onPress={() => navigation.toggleDrawer()} />
-      ),
-    });
-  }, [navigation]);
-
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>PageOneScreen</Text>

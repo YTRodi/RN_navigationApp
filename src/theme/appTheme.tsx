@@ -22,4 +22,23 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  avatarContainer: {
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  avatar: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+  },
+  menuContainer: {
+    marginVertical: 30,
+    marginHorizontal: 50,
+  },
+  menuButton: {
+    marginVertical: 10,
+  },
+  textMenu: {
+    fontSize: 20,
+  },
 });
