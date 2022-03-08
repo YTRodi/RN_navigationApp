@@ -8,10 +8,32 @@ import PageThreeScreen from '../screens/PageThreeScreen';
 const Stack = createStackNavigator();
 
 const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="PageOneScreen" component={PageOneScreen} />
-    <Stack.Screen name="PageTwoScreen" component={PageTwoScreen} />
-    <Stack.Screen name="PageThreeScreen" component={PageThreeScreen} />
+  <Stack.Navigator
+    // initialRouteName='PageTwoScreen'
+    screenOptions={{
+      headerStyle: {
+        elevation: 0,
+        shadowColor: 'transparent',
+      },
+      cardStyle: {
+        backgroundColor: 'white',
+      },
+    }}>
+    <Stack.Screen
+      name="PageOneScreen"
+      options={{title: 'Página 1'}}
+      component={PageOneScreen}
+    />
+    <Stack.Screen
+      name="PageTwoScreen"
+      options={{title: 'Página 2', headerBackTitle: 'lala'}}
+      component={PageTwoScreen}
+    />
+    <Stack.Screen
+      name="PageThreeScreen"
+      options={{title: 'Página 3'}}
+      component={PageThreeScreen}
+    />
   </Stack.Navigator>
 );
 

@@ -8,7 +8,7 @@ interface Props extends StackScreenProps<any, any> {}
 const PageOneScreen = ({navigation}: Props) => {
   return (
     <View style={styles.globalMargin}>
-      <Text>PageOneScreen</Text>
+      <Text style={styles.title}>PageOneScreen</Text>
 
       <Button
         title="Ir página 2"
