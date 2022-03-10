@@ -14,6 +14,7 @@ import {
   View,
 } from 'react-native';
 import {styles} from '../theme/appTheme';
+import {Tabs} from './Tabs';
 
 const Drawer = createDrawerNavigator();
 
@@ -24,16 +25,8 @@ export const SideMenu = () => {
     <Drawer.Navigator
       screenOptions={{drawerType: width >= 768 ? 'permanent' : 'front'}}
       drawerContent={props => <DrawerContent {...props} />}>
-      <Drawer.Screen
-        name="StackNavigator"
-        component={StackNavigator}
-        // options={{headerShown: false}}
-      />
-      <Drawer.Screen
-        name="SettingsScreen"
-        options={{headerShown: false}}
-        component={SettingsScreen}
-      />
+      <Drawer.Screen name="Tabs" component={Tabs} />
+      <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
 };
@@ -53,14 +46,14 @@ const DrawerContent = ({navigation}: DrawerContentComponentProps) => {
       <View style={styles.menuContainer}>
         <TouchableOpacity
           style={styles.menuButton}
-          onPress={() => navigation.navigate('StackNavigator')}>
+          onPress={() => navigation.navigate('Tabs')}>
           <Text style={styles.textMenu}>Navegación</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.menuButton}
           onPress={() => navigation.navigate('SettingsScreen')}>
-          <Text style={styles.textMenu}>Settings</Text>
+          <Text style={styles.textMenu}>Ajustes</Text>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
