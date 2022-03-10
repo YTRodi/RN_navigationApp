@@ -1,20 +1,19 @@
 import React from 'react';
 import {
-  createDrawerNavigator,
-  DrawerContentComponentProps,
-  DrawerContentScrollView,
-} from '@react-navigation/drawer';
-import {SettingsScreen} from '../screens/SettingsScreen';
-import {StackNavigator} from './StackNavigator';
-import {
   Image,
   Text,
   TouchableOpacity,
   useWindowDimensions,
   View,
 } from 'react-native';
-import {styles} from '../theme/appTheme';
+import {
+  createDrawerNavigator,
+  DrawerContentComponentProps,
+  DrawerContentScrollView,
+} from '@react-navigation/drawer';
+import {SettingsScreen} from '../screens/SettingsScreen';
 import {Tabs} from './Tabs';
+import {styles} from '../theme/appTheme';
 
 const Drawer = createDrawerNavigator();
 
