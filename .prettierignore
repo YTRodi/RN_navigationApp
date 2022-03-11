@@ -1,0 +1,5 @@
+yarn.lock
+.bundle
+android
+ios
+vendor

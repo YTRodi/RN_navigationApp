@@ -11,26 +11,27 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import {SettingsScreen} from '../screens/SettingsScreen';
-import {Tabs} from './Tabs';
-import {styles} from '../theme/appTheme';
+import { SettingsScreen } from '../screens/SettingsScreen';
+import { Tabs } from './Tabs';
+import { styles } from '../theme/appTheme';
 
 const Drawer = createDrawerNavigator();
 
 export const SideMenu = () => {
-  const {width} = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   return (
     <Drawer.Navigator
-      screenOptions={{drawerType: width >= 768 ? 'permanent' : 'front'}}
-      drawerContent={props => <DrawerContent {...props} />}>
+      screenOptions={{ drawerType: width >= 768 ? 'permanent' : 'front' }}
+      drawerContent={props => <DrawerContent {...props} />}
+    >
       <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
 };
 
-const DrawerContent = ({navigation}: DrawerContentComponentProps) => {
+const DrawerContent = ({ navigation }: DrawerContentComponentProps) => {
   return (
     <DrawerContentScrollView>
       <View style={styles.avatarContainer}>
@@ -45,13 +46,15 @@ const DrawerContent = ({navigation}: DrawerContentComponentProps) => {
       <View style={styles.menuContainer}>
         <TouchableOpacity
           style={styles.menuButton}
-          onPress={() => navigation.navigate('Tabs')}>
+          onPress={() => navigation.navigate('Tabs')}
+        >
           <Text style={styles.textMenu}>Navegación</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.menuButton}
-          onPress={() => navigation.navigate('SettingsScreen')}>
+          onPress={() => navigation.navigate('SettingsScreen')}
+        >
           <Text style={styles.textMenu}>Ajustes</Text>
         </TouchableOpacity>
       </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import PageOneScreen from '../screens/PageOneScreen';
 import PageTwoScreen from '../screens/PageTwoScreen';
 import PageThreeScreen from '../screens/PageThreeScreen';
@@ -10,7 +10,7 @@ export type RootStackParams = {
   PageOneScreen: undefined;
   PageTwoScreen: undefined;
   PageThreeScreen: undefined;
-  PersonScreen: {id: number; nombre: string};
+  PersonScreen: { id: number; nombre: string };
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -26,20 +26,21 @@ export const StackNavigator = () => (
       cardStyle: {
         backgroundColor: 'white',
       },
-    }}>
+    }}
+  >
     <Stack.Screen
       name="PageOneScreen"
-      options={{title: 'Página 1'}}
+      options={{ title: 'Página 1' }}
       component={PageOneScreen}
     />
     <Stack.Screen
       name="PageTwoScreen"
-      options={{title: 'Página 2', headerBackTitle: 'lala'}}
+      options={{ title: 'Página 2', headerBackTitle: 'lala' }}
       component={PageTwoScreen}
     />
     <Stack.Screen
       name="PageThreeScreen"
-      options={{title: 'Página 3'}}
+      options={{ title: 'Página 3' }}
       component={PageThreeScreen}
     />
     <Stack.Screen name="PersonScreen" component={PersonScreen} />
