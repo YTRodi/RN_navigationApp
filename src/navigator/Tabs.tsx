@@ -2,10 +2,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { RouteProp, ParamListBase } from '@react-navigation/native';
-import {
-  createMaterialBottomTabNavigator,
-  MaterialBottomTabNavigationOptions,
-} from '@react-navigation/material-bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
 import { Tab2Screen } from '../screens/Tab2Screen';
