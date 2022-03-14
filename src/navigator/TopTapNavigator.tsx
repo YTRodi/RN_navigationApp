@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogBox } from 'react-native';
+import { LogBox, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { ChatScreen } from '../screens/ChatScreen';
 import { ContactsScreen } from '../screens/ContactsScreen';
@@ -13,9 +13,8 @@ const Tab = createMaterialTopTabNavigator();
 export const TopTapNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         tabBarPressColor: colors.primary,
-        tabBarShowIcon: false,
         tabBarIndicatorStyle: {
           backgroundColor: colors.primary,
         },
@@ -23,7 +22,17 @@ export const TopTapNavigator = () => {
           elevation: 0, // remove shadows in android
           shadowColor: 'transparent', // remove shadows in ios
         },
-      }}
+        tabBarShowIcon: true,
+        tabBarIcon: ({ color }) => {
+          const iconName = {
+            ChatScreen: 'CH',
+            ContactsScreen: 'CO',
+            AlbumsScreen: 'AL',
+          }[route.name];
+
+          return <Text style={{ color }}>{iconName}</Text>;
+        },
+      })}
     >
       <Tab.Screen
         name="ChatScreen"
