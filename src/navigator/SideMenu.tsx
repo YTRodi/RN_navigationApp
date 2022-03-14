@@ -22,7 +22,10 @@ export const SideMenu = () => {
 
   return (
     <Drawer.Navigator
-      screenOptions={{ drawerType: width >= 768 ? 'permanent' : 'front' }}
+      screenOptions={{
+        drawerType: width >= 768 ? 'permanent' : 'front',
+        headerShown: false,
+      }}
       drawerContent={props => <DrawerContent {...props} />}
     >
       <Drawer.Screen name="Tabs" component={Tabs} />

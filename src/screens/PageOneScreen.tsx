@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { Button, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 // import {StackScreenProps} from '@react-navigation/stack';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { RootStackParams } from '../navigator/StackNavigator';
@@ -11,7 +11,7 @@ interface Props extends DrawerScreenProps<RootStackParams, 'PageOneScreen'> {}
 
 const PageOneScreen = ({ navigation }: Props) => {
   return (
-    <View style={styles.globalMargin}>
+    <ScrollView style={styles.globalMargin}>
       <Text style={styles.title}>PageOneScreen</Text>
 
       <Button
@@ -48,7 +48,7 @@ const PageOneScreen = ({ navigation }: Props) => {
           <Text style={styles.bigButtonText}>Maria</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

@@ -5,12 +5,15 @@ import { ChatScreen } from '../screens/ChatScreen';
 import { ContactsScreen } from '../screens/ContactsScreen';
 import { AlbumsScreen } from '../screens/AlbumsScreen';
 import { colors } from '../theme/appTheme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 LogBox.ignoreLogs(['Sending']);
 
 const Tab = createMaterialTopTabNavigator();
 
 export const TopTapNavigator = () => {
+  const { top } = useSafeAreaInsets();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -19,6 +22,7 @@ export const TopTapNavigator = () => {
           backgroundColor: colors.primary,
         },
         tabBarStyle: {
+          paddingTop: top,
           elevation: 0, // remove shadows in android
           shadowColor: 'transparent', // remove shadows in ios
         },

@@ -64,7 +64,7 @@ export const TabsIOS = () => {
   return (
     <BottomTabIOS.Navigator
       sceneContainerStyle={{ backgroundColor: 'white' }}
-      screenOptions={screenOptions}
+      screenOptions={{ ...screenOptions, headerShown: false }}
     >
       <BottomTabIOS.Screen
         name="Tab1Screen"
