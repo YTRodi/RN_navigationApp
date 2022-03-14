@@ -5,7 +5,6 @@ import { RouteProp, ParamListBase } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
-// import { Tab2Screen } from '../screens/Tab2Screen';
 import { TopTapNavigator } from './TopTapNavigator';
 import { StackNavigator } from './StackNavigator';
 import { isIOS } from '../helpers/platform';
