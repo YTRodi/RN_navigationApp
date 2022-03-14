@@ -1,36 +1,45 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { Text } from 'react-native';
-import { RouteProp, ParamListBase } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
 import { TopTapNavigator } from './TopTapNavigator';
 import { StackNavigator } from './StackNavigator';
-import { isIOS } from '../helpers/platform';
+import { isAndroid, isIOS } from '../helpers/platform';
 import { colors } from '../theme/appTheme';
 
-interface ScreenOptionsProps {
-  route: RouteProp<ParamListBase, string>;
-  navigation: any;
-}
 interface TabBarIconProps {
+  routeName: string;
   focused: boolean;
   color: string;
-  size?: number;
 }
 
-const screenOptions = ({ route }: ScreenOptionsProps) => ({
-  tabBarIcon: ({ color }: TabBarIconProps) => {
-    const iconName = {
-      Tab1Screen: 'T1',
-      Tab2Screen: 'T2',
-      StackNavigator: 'ST',
-    }[route.name];
+const TabBarIcon = ({ routeName, focused, color }: TabBarIconProps) => {
+  const defaultSize = 20;
+  const iconName = getIconNameByRouteName(routeName);
 
-    return <Text style={{ color }}>{iconName}</Text>;
-  },
-});
+  if (isAndroid) {
+    return <Icon name={iconName} size={defaultSize} color={color} />;
+  }
+
+  return (
+    <Icon
+      name={iconName}
+      size={defaultSize}
+      color={focused ? colors.primary : color}
+    />
+  );
+};
+
+const getIconNameByRouteName = (routeName: string) => {
+  return {
+    Tab1Screen: 'attach-outline',
+    TopTapNavigator: 'basketball-outline',
+    StackNavigator: 'bookmarks-outline',
+  }[routeName]!;
+};
 
 const BottomTabAndroid = createMaterialBottomTabNavigator();
 
@@ -39,7 +48,11 @@ function TabsAndroid() {
     <BottomTabAndroid.Navigator
       sceneAnimationEnabled
       barStyle={{ backgroundColor: colors.primary }}
-      screenOptions={screenOptions}
+      screenOptions={({ route }) => ({
+        tabBarIcon: props => {
+          return <TabBarIcon routeName={route.name} {...props} />;
+        },
+      })}
     >
       <BottomTabAndroid.Screen
         name="Tab1Screen"
@@ -64,7 +77,19 @@ export const TabsIOS = () => {
   return (
     <BottomTabIOS.Navigator
       sceneContainerStyle={{ backgroundColor: 'white' }}
-      screenOptions={{ ...screenOptions, headerShown: false }}
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarLabel: ({ color, focused }) => {
+          return (
+            <Text style={{ color: focused ? colors.primary : color }}>
+              {route.name}
+            </Text>
+          );
+        },
+        tabBarIcon: props => {
+          return <TabBarIcon routeName={route.name} {...props} />;
+        },
+      })}
     >
       <BottomTabIOS.Screen
         name="Tab1Screen"
