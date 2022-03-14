@@ -5,7 +5,8 @@ import { RouteProp, ParamListBase } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
-import { Tab2Screen } from '../screens/Tab2Screen';
+// import { Tab2Screen } from '../screens/Tab2Screen';
+import { TopTapNavigator } from './TopTapNavigator';
 import { StackNavigator } from './StackNavigator';
 import { isIOS } from '../helpers/platform';
 import { colors } from '../theme/appTheme';
@@ -46,7 +47,10 @@ function TabsAndroid() {
         component={Tab1Screen}
         options={{ tabBarBadge: '+99' }}
       />
-      <BottomTabAndroid.Screen name="Tab2Screen" component={Tab2Screen} />
+      <BottomTabAndroid.Screen
+        name="TopTapNavigator"
+        component={TopTapNavigator}
+      />
       <BottomTabAndroid.Screen
         name="StackNavigator"
         component={StackNavigator}
@@ -68,7 +72,7 @@ export const TabsIOS = () => {
         component={Tab1Screen}
         options={{ tabBarBadge: '+99' }}
       />
-      <BottomTabIOS.Screen name="Tab2Screen" component={Tab2Screen} />
+      <BottomTabIOS.Screen name="TopTapNavigator" component={TopTapNavigator} />
       <BottomTabIOS.Screen name="StackNavigator" component={StackNavigator} />
     </BottomTabIOS.Navigator>
   );
