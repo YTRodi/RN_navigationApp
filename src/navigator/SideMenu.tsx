@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Image,
   Text,
@@ -6,6 +6,7 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
@@ -35,6 +36,22 @@ export const SideMenu = () => {
 };
 
 const DrawerContent = ({ navigation }: DrawerContentComponentProps) => {
+  const menuItems = useMemo(
+    () => [
+      {
+        screen: 'Tabs',
+        iconName: 'compass-outline',
+        text: 'Navegación',
+      },
+      {
+        screen: 'SettingsScreen',
+        iconName: 'cog-outline',
+        text: 'Ajustes',
+      },
+    ],
+    [],
+  );
+
   return (
     <DrawerContentScrollView>
       <View style={styles.avatarContainer}>
@@ -47,19 +64,15 @@ const DrawerContent = ({ navigation }: DrawerContentComponentProps) => {
       </View>
 
       <View style={styles.menuContainer}>
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => navigation.navigate('Tabs')}
-        >
-          <Text style={styles.textMenu}>Navegación</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => navigation.navigate('SettingsScreen')}
-        >
-          <Text style={styles.textMenu}>Ajustes</Text>
-        </TouchableOpacity>
+        {menuItems.map(item => (
+          <TouchableOpacity
+            style={{ ...styles.menuButton, flexDirection: 'row' }}
+            onPress={() => navigation.navigate(item.screen)}
+          >
+            <Icon name={item.iconName} size={23} color="black" />
+            <Text style={styles.textMenu}> {item.text}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </DrawerContentScrollView>
   );
