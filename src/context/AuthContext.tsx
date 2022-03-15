@@ -21,6 +21,7 @@ export interface AuthContextProps {
   signIn: () => void;
   logout: () => void;
   changeFavoriteIcon: (iconName: string) => void;
+  changeUsername: (name: string) => void;
 }
 
 // Crear el contexto
@@ -42,6 +43,10 @@ export const AuthProvider = ({ children }: any) => {
     dispatch({ type: 'changeFavIcon', payload: iconName });
   };
 
+  const changeUsername = (name: string) => {
+    dispatch({ type: 'changeUsername', payload: name });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -49,6 +54,7 @@ export const AuthProvider = ({ children }: any) => {
         signIn,
         logout,
         changeFavoriteIcon,
+        changeUsername,
       }}
     >
       {children}
