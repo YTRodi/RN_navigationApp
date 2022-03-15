@@ -58,6 +58,7 @@ const PageOneScreen = ({ navigation }: Props) => {
       <View style={{ flexDirection: 'row' }}>
         {items.map(item => (
           <TouchableOpacity
+            key={item.screen}
             style={{
               ...styles.bigButton,
               backgroundColor: item.backgroundColor,

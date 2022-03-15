@@ -66,6 +66,7 @@ const DrawerContent = ({ navigation }: DrawerContentComponentProps) => {
       <View style={styles.menuContainer}>
         {menuItems.map(item => (
           <TouchableOpacity
+            key={item.screen}
             style={{ ...styles.menuButton, flexDirection: 'row' }}
             onPress={() => navigation.navigate(item.screen)}
           >
