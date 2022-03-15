@@ -1,8 +1,8 @@
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { colors, styles } from '../theme/appTheme';
+import { TouchableIcon } from '../components/TouchableIcon';
+import { styles } from '../theme/appTheme';
 
 export const Tab1Screen = () => {
   const { top } = useSafeAreaInsets();
@@ -12,17 +12,13 @@ export const Tab1Screen = () => {
       <Text style={styles.title}>Iconos</Text>
 
       {/* https://ionic.io/ionicons */}
-      <Icon name="airplane-outline" size={80} color={colors.primary} />
-      <Icon name="attach-outline" size={80} color={colors.primary} />
-      <Icon name="bonfire-outline" size={80} color={colors.primary} />
-      <Icon name="calculator-outline" size={80} color={colors.primary} />
-      <Icon
-        name="chatbubble-ellipses-outline"
-        size={80}
-        color={colors.primary}
-      />
-      <Icon name="images-outline" size={80} color={colors.primary} />
-      <Icon name="leaf-outline" size={80} color={colors.primary} />
+      <TouchableIcon iconName="airplane-outline" />
+      <TouchableIcon iconName="attach-outline" />
+      <TouchableIcon iconName="bonfire-outline" />
+      <TouchableIcon iconName="calculator-outline" />
+      <TouchableIcon iconName="chatbubble-ellipses-outline" />
+      <TouchableIcon iconName="images-outline" />
+      <TouchableIcon iconName="leaf-outline" />
     </ScrollView>
   );
 };
